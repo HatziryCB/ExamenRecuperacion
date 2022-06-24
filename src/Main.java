@@ -33,6 +33,11 @@ public class Main {
                         System.out.println("\nMostrando los elementos de la lista a continuación:");
                         System.out.println(lista);
                         break;
+                    case 2:
+                        System.out.print("\nIngrese el nombre del departamento que desea consultar: ");
+                        String elemento = sc.nextLine();
+                        metodos.busquedaLista(elemento);
+                        break;
                 }
             }while (accion != 4);
         }

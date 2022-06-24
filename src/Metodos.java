@@ -66,4 +66,14 @@ public class Metodos extends Main {
             System.out.println(error.getMessage());
         }
     }
+    public void busquedaLista(String elemento) {
+        for (int i = 0; i < lista.size(); i++) {
+            RegistroLista registro = lista.get(i);
+            if (registro.getDepartamento().equals(elemento)) {
+                System.out.println("\nEl departamento de \"" + elemento + "\", SI se encuentra en el registro.");
+                return;
+            }
+        }
+        System.out.println("\nEl departamento de \"" + elemento + "\", NO se encuentra en el registro.");
+    }
 }

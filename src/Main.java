@@ -17,7 +17,7 @@ public class Main {
         System.out.print("\nPor favor seleccione el metodo que desea utilizar: ");
         opcion = sc.nextInt();
         if (opcion==1){
-            System.out.println("\n    METODOS DE REGISTRO POR LISTAS    ");
+            System.out.println("\n          METODOS DE REGISTRO POR LISTAS    ");
             metodos.registro();
             do {
                 System.out.println("\n                  MENU");
@@ -46,7 +46,7 @@ public class Main {
                 }
             }while (accion != 4);
         } else if (opcion==2) {
-            System.out.println("\n    METODOS DE REGISTRO POR ARREGLOS  ");
+            System.out.println("\n          METODOS DE REGISTRO POR ARREGLOS  ");
             metodos.registro();
             do {
                 System.out.println("\n                     MENU");
@@ -71,6 +71,7 @@ public class Main {
                         metodos.busqueda2();
                         break;
                     case 4:
+                        metodos.pares();
                         break;
                     case 5:
                         break;

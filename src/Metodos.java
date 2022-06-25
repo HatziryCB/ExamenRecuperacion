@@ -12,7 +12,7 @@ public class Metodos extends Main {
         for (int i = 0; i < contador; i++) {
             System.out.println("\nRegistro " + (i + 1));
             System.out.print("Codigo del departamento: ");
-            codigo=sc.nextInt();
+            codigo = sc.nextInt();
             System.out.print("Nombre del departamento: ");
             sc.nextLine();
             departamento = sc.nextLine();
@@ -26,31 +26,32 @@ public class Metodos extends Main {
             System.out.println("3) Region Este");
             System.out.println("4) Region Oeste");
             System.out.print("Seleccione la region a la que pertenece: ");
-            lector=sc.nextInt();
-            switch (lector){
+            lector = sc.nextInt();
+            switch (lector) {
                 case 1:
-                    region="Norte";
+                    region = "Norte";
                     break;
                 case 2:
-                    region="Sur";
+                    region = "Sur";
                     break;
                 case 3:
-                    region="Este";
+                    region = "Este";
                     break;
                 case 4:
-                    region="Oeste";
+                    region = "Oeste";
                     break;
             }
-            RegistroLista registro = new RegistroLista(codigo,departamento,municipio,cabecera,region);
+            RegistroLista registro = new RegistroLista(codigo, departamento, municipio, cabecera, region);
             lista.add(registro);
             vectorNombre[i] = departamento;
             numeroMun[i] = municipio;
-            this.registroArreglo(codigo,departamento,municipio,cabecera,region);
+            this.registroArreglo(codigo, departamento, municipio, cabecera, region);
         }
     }
-    public void registroArreglo(int codigo,String departamento, int municipio, String cabecera, String region) {
+
+    public void registroArreglo(int codigo, String departamento, int municipio, String cabecera, String region) {
         indice = indice + 1; //indice+=1; <== is the same, se puede escribir de ambas formas
-        arreglo[indice] = "Codigo del departamento: "+codigo+"\nNombre de departamento: " + departamento + "\nNumero de municipios: " + municipio + "\nCabecera: " + cabecera + "\nRegion: "+region+"\n";
+        arreglo[indice] = "Codigo del departamento: " + codigo + "\nNombre de departamento: " + departamento + "\nNumero de municipios: " + municipio + "\nCabecera: " + cabecera + "\nRegion: " + region + "\n";
     }
 
     public void mostrarArreglo() {
@@ -64,6 +65,7 @@ public class Metodos extends Main {
             System.out.println(error.getMessage());
         }
     }
+
     public void busquedaLista(String elemento) {
         for (int i = 0; i < lista.size(); i++) {
             RegistroLista registro = lista.get(i);
@@ -74,19 +76,22 @@ public class Metodos extends Main {
         }
         System.out.println("\nEl departamento de \"" + elemento + "\", NO se encuentra en el registro.");
     }
-    public void busquedaNumero(int numero){
+
+    public void busquedaNumero(int numero) {
         for (int i = 0; i < lista.size(); i++) {
-            RegistroLista registro= lista.get(i);
-            if (lista.get(i).equals(lista.get(numero-1))){
-                System.out.println("El departamento registrado en la posicion => "+numero+" es: \""+registro.getDepartamento()+"\"");
+            RegistroLista registro = lista.get(i);
+            if (lista.get(i).equals(lista.get(numero - 1))) {
+                System.out.println("El departamento registrado en la posicion => " + numero + " es: \"" + registro.getDepartamento() + "\"");
                 return;
             }
         }
         System.out.println("Los datos no son compatibles");
     }
+
     public void busqueda() {
         int iterador = -1;
         System.out.print("\nIngrese el nombre del departamento que desea consultar: ");
+        sc.nextLine();
         buscar = sc.nextLine();
         for (int i = 0; i < vectorNombre.length; i++) {
             if (vectorNombre[i] == null ? (buscar) == null : vectorNombre[i].equals(buscar)) {
@@ -99,6 +104,7 @@ public class Metodos extends Main {
             System.out.println("\nEl departamento de \" " + buscar + " \" fue registrado en la posicion: \" " + (iterador + 1) + " \"");
         }
     }
+
     public void busqueda2() {
         System.out.print("\nIngrese la inicial del departamento de su interes:  ");
         sc.nextLine();
@@ -109,6 +115,16 @@ public class Metodos extends Main {
                 return;
             }
         }
-        System.out.println("\nNo se encuentra en el registro");
+        System.out.println("\nNo se encuentra en el registro ningun departamento con inicial \"" + buscar+"\"");
+    }
+    public void pares() {
+        System.out.println("\nDepartamentos en posicion par con mas de 4 Municipios ");
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 == 0) {
+                if (numeroMun[i] > 4) {
+                    System.out.println("Departamento: \" "+vectorNombre[i]+" \"");
+                }
+            }
+        }
     }
 }

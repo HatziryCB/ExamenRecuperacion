@@ -45,6 +45,27 @@ public class Main {
                         break;
                 }
             }while (accion != 4);
+        } else if (opcion==2) {
+            System.out.println("\n    METODOS DE REGISTRO POR ARREGLOS  ");
+            metodos.registro();
+            do {
+                System.out.println("\nMENU");
+                System.out.println("\n1) Mostrar todos los registros en el arreglo");
+                System.out.println("2) Buscar e identificar la posicion del elemento en el arreglo");
+                System.out.println("3) Buscar departamento por medio de iniciales");
+                System.out.println("4) Mostrar los departamentos en posiciones pares con mas de 4 Municipios");
+                System.out.println("5) Mostrar cabecera del departamento a eleccion");
+                System.out.println("6) Mostrar departamentos registrados en las posiciones impares");
+                System.out.println("7) Salir del programa");
+                System.out.print("\nIngresa la opcion que deseas realizar: ");
+                accion = sc.nextInt();
+                switch (accion){
+                    case 1:
+                        System.out.println("\nMostrando todos los elementos almacenados en el arreglo:");
+                        metodos.mostrarArreglo();
+                        break;
+                }
+            }while (accion!=7);
         }
     }
 }

@@ -38,6 +38,11 @@ public class Main {
                         String elemento = sc.nextLine();
                         metodos.busquedaLista(elemento);
                         break;
+                    case 3:
+                        System.out.print("\nIngrese la posicion en el que fue registrado el departamento: ");
+                        int numero = sc.nextInt();
+                        metodos.busquedaNumero(numero);
+                        break;
                 }
             }while (accion != 4);
         }

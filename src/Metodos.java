@@ -76,4 +76,14 @@ public class Metodos extends Main {
         }
         System.out.println("\nEl departamento de \"" + elemento + "\", NO se encuentra en el registro.");
     }
+    public void busquedaNumero(int numero){
+        for (int i = 0; i < lista.size(); i++) {
+            RegistroLista registro= lista.get(i);
+            if (lista.get(i).equals(lista.get(numero-1))){
+                System.out.println("El departamento registrado en la posicion => "+numero+" es: \""+registro.getDepartamento()+"\"");
+                return;
+            }
+        }
+        System.out.println("Los datos no son compatibles");
+    }
 }

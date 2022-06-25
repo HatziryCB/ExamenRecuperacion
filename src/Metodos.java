@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Metodos extends Main {
     protected String[] arreglo = new String[50];
     protected String[] vectorNombre = new String[50];
@@ -85,5 +83,20 @@ public class Metodos extends Main {
             }
         }
         System.out.println("Los datos no son compatibles");
+    }
+    public void busqueda() {
+        int iterador = -1;
+        System.out.print("\nIngrese el nombre del departamento que desea consultar: ");
+        buscar = sc.nextLine();
+        for (int i = 0; i < vectorNombre.length; i++) {
+            if (vectorNombre[i] == null ? (buscar) == null : vectorNombre[i].equals(buscar)) {
+                iterador = i;
+            }
+        }
+        if (iterador == -1) {
+            System.out.println("\nEl departamento de \" " + buscar + " \" no ha sido registrado");
+        } else {
+            System.out.println("\nEl departamento de \" " + buscar + " \" fue registrado en la posicion: \" " + (iterador + 1) + " \"");
+        }
     }
 }

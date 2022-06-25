@@ -20,7 +20,7 @@ public class Main {
             System.out.println("\n    METODOS DE REGISTRO POR LISTAS    ");
             metodos.registro();
             do {
-                System.out.println("\nMENU");
+                System.out.println("\n                  MENU");
                 System.out.println("1) Mostrar todos los elementos de la lista");
                 System.out.println("2) Verificar elemento registrado en la lista");
                 System.out.println("3) Busqueda de elemento por medio de numero en la lista");
@@ -49,8 +49,8 @@ public class Main {
             System.out.println("\n    METODOS DE REGISTRO POR ARREGLOS  ");
             metodos.registro();
             do {
-                System.out.println("\nMENU");
-                System.out.println("\n1) Mostrar todos los registros en el arreglo");
+                System.out.println("\n                     MENU");
+                System.out.println("1) Mostrar todos los registros en el arreglo");
                 System.out.println("2) Buscar e identificar la posicion del elemento en el arreglo");
                 System.out.println("3) Buscar departamento por medio de iniciales");
                 System.out.println("4) Mostrar los departamentos en posiciones pares con mas de 4 Municipios");
@@ -63,6 +63,19 @@ public class Main {
                     case 1:
                         System.out.println("\nMostrando todos los elementos almacenados en el arreglo:");
                         metodos.mostrarArreglo();
+                        break;
+                    case 2:
+                        metodos.busqueda();
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    case 7:
                         break;
                 }
             }while (accion!=7);

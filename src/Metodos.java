@@ -1,7 +1,15 @@
-public class Metodos extends Main {
+import java.awt.*;
+import java.util.Scanner;
+
+public class Metodos extends Menu {
+    private int contador, municipio, codigo, lector;
+    private String departamento, cabecera, region;
     protected String[] arreglo = new String[50];
     protected String[] vectorNombre = new String[50];
     protected int[] numeroMun = new int[50];
+    protected String[] capital = new String[50];
+    Scanner sc = new Scanner(System.in);
+    Main menu = new Main();
     String buscar;
     int indice = 0;
 
@@ -42,9 +50,10 @@ public class Metodos extends Main {
                     break;
             }
             RegistroLista registro = new RegistroLista(codigo, departamento, municipio, cabecera, region);
-            lista.add(registro);
+            Main.lista.add(registro);
             vectorNombre[i] = departamento;
             numeroMun[i] = municipio;
+            capital[i] = cabecera;
             this.registroArreglo(codigo, departamento, municipio, cabecera, region);
         }
     }
@@ -67,8 +76,8 @@ public class Metodos extends Main {
     }
 
     public void busquedaLista(String elemento) {
-        for (int i = 0; i < lista.size(); i++) {
-            RegistroLista registro = lista.get(i);
+        for (int i = 0; i < Main.lista.size(); i++) {
+            RegistroLista registro = Main.lista.get(i);
             if (registro.getDepartamento().equals(elemento)) {
                 System.out.println("\nEl departamento de \"" + elemento + "\", SI se encuentra en el registro.");
                 return;
@@ -78,9 +87,9 @@ public class Metodos extends Main {
     }
 
     public void busquedaNumero(int numero) {
-        for (int i = 0; i < lista.size(); i++) {
-            RegistroLista registro = lista.get(i);
-            if (lista.get(i).equals(lista.get(numero - 1))) {
+        for (int i = 0; i < Main.lista.size(); i++) {
+            RegistroLista registro = Main.lista.get(i);
+            if (Main.lista.get(i).equals(Main.lista.get(numero - 1))) {
                 System.out.println("El departamento registrado en la posicion => " + numero + " es: \"" + registro.getDepartamento() + "\"");
                 return;
             }
@@ -115,16 +124,36 @@ public class Metodos extends Main {
                 return;
             }
         }
-        System.out.println("\nNo se encuentra en el registro ningun departamento con inicial \"" + buscar+"\"");
+        System.out.println("\nNo se encuentra en el registro ningun departamento con inicial \"" + buscar + "\"");
     }
+
     public void pares() {
         System.out.println("\nDepartamentos en posicion par con mas de 4 Municipios ");
         for (int i = 0; i < 10; i++) {
             if (i % 2 == 0) {
                 if (numeroMun[i] > 4) {
-                    System.out.println("Departamento: \" "+vectorNombre[i]+" \"");
+                    System.out.println("Departamento: \" " + vectorNombre[i] + " \"");
                 }
             }
         }
     }
+
+    public void mostrarCapital() {
+        System.out.print("\nIngrese el nombre del departamento del cual desea conocer su capital: ");
+        sc.nextLine();
+        String buscar = sc.nextLine();
+        int iterador =-1;
+        for (int i = 0; i < vectorNombre.length; i++) {
+            if (vectorNombre[i] == null ? (buscar) == null : vectorNombre[i].equals(buscar)) {
+                iterador=i;
+                cabecera=capital[i];
+            }
+        }
+        if (iterador==-1){
+            System.out.println("Se ha producido un error, intentelo de nuevo");
+        }else {
+            System.out.println("La capital del departamento de: \""+buscar+"\" es: \""+cabecera+"\"");
+        }
+    }
+
 }

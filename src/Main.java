@@ -2,8 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    static protected int opcion, accion, contador, municipio, codigo,lector;
-    static protected String departamento, cabecera, region;
+    static protected int opcion, accion;
     static ArrayList<RegistroLista> lista = new ArrayList<RegistroLista>();
     static Metodos metodos = new Metodos();
     static Scanner sc = new Scanner(System.in);
@@ -16,7 +15,7 @@ public class Main {
         System.out.println("2) Metodos por arreglos en Java");
         System.out.print("\nPor favor seleccione el metodo que desea utilizar: ");
         opcion = sc.nextInt();
-        if (opcion==1){
+        if (opcion == 1) {
             System.out.println("\n          METODOS DE REGISTRO POR LISTAS    ");
             metodos.registro();
             do {
@@ -28,7 +27,7 @@ public class Main {
                 System.out.print("\nIngresa la opcion que desea realizar: ");
                 accion = sc.nextInt();
                 sc.nextLine();
-                switch (accion){
+                switch (accion) {
                     case 1:
                         System.out.println("\nMostrando los elementos de la lista a continuación:");
                         System.out.println(lista);
@@ -44,8 +43,8 @@ public class Main {
                         metodos.busquedaNumero(numero);
                         break;
                 }
-            }while (accion != 4);
-        } else if (opcion==2) {
+            } while (accion != 4);
+        } else if (opcion == 2) {
             System.out.println("\n          METODOS DE REGISTRO POR ARREGLOS  ");
             metodos.registro();
             do {
@@ -59,7 +58,7 @@ public class Main {
                 System.out.println("7) Salir del programa");
                 System.out.print("\nIngresa la opcion que deseas realizar: ");
                 accion = sc.nextInt();
-                switch (accion){
+                switch (accion) {
                     case 1:
                         System.out.println("\nMostrando todos los elementos almacenados en el arreglo:");
                         metodos.mostrarArreglo();
@@ -74,13 +73,14 @@ public class Main {
                         metodos.pares();
                         break;
                     case 5:
+                        metodos.mostrarCapital();
                         break;
                     case 6:
                         break;
                     case 7:
                         break;
                 }
-            }while (accion!=7);
+            } while (accion != 7);
         }
     }
 }

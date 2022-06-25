@@ -68,6 +68,7 @@ public class Main {
                         metodos.busqueda();
                         break;
                     case 3:
+                        metodos.busqueda2();
                         break;
                     case 4:
                         break;

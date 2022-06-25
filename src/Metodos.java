@@ -99,4 +99,16 @@ public class Metodos extends Main {
             System.out.println("\nEl departamento de \" " + buscar + " \" fue registrado en la posicion: \" " + (iterador + 1) + " \"");
         }
     }
+    public void busqueda2() {
+        System.out.print("\nIngrese la inicial del departamento de su interes:  ");
+        sc.nextLine();
+        buscar = sc.nextLine();
+        for (int i = 0; i < vectorNombre.length; i++) {
+            if (vectorNombre[i] == null ? (buscar) == null : vectorNombre[i].contains(buscar)) {
+                System.out.println("\nEl departamento con inicial \"" + buscar + "\" es \" " + vectorNombre[i] + " \"");
+                return;
+            }
+        }
+        System.out.println("\nNo se encuentra en el registro");
+    }
 }

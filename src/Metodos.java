@@ -60,13 +60,13 @@ public class Metodos extends Menu {
 
     public void registroArreglo(int codigo, String departamento, int municipio, String cabecera, String region) {
         indice = indice + 1; //indice+=1; <== is the same, se puede escribir de ambas formas
-        arreglo[indice] = "Codigo del departamento: " + codigo + "\nNombre de departamento: " + departamento + "\nNumero de municipios: " + municipio + "\nCabecera: " + cabecera + "\nRegion: " + region + "\n";
+        arreglo[indice] = "Codigo del departamento: " + codigo + "\nNombre del departamento: " + departamento + "\nCantidad de municipios: " + municipio + "\nCabecera: " + cabecera + "\nRegion: " + region + "\n";
     }
 
     public void mostrarArreglo() {
         try {
             for (int i = 1; i < arreglo.length; i++) {
-                if (!arreglo[i].isEmpty()) {
+                if (arreglo[i] != null && !arreglo[i].isEmpty()) {
                     System.out.println(arreglo[i]);
                 }
             }
@@ -90,7 +90,7 @@ public class Metodos extends Menu {
         for (int i = 0; i < Main.lista.size(); i++) {
             RegistroLista registro = Main.lista.get(i);
             if (Main.lista.get(i).equals(Main.lista.get(numero - 1))) {
-                System.out.println("El departamento registrado en la posicion => " + numero + " es: \"" + registro.getDepartamento() + "\"");
+                System.out.println("El departamento registrado en la posicion \" " + numero + " \" es: \" " + registro.getDepartamento() + " \"");
                 return;
             }
         }
@@ -100,7 +100,6 @@ public class Metodos extends Menu {
     public void busqueda() {
         int iterador = -1;
         System.out.print("\nIngrese el nombre del departamento que desea consultar: ");
-        sc.nextLine();
         buscar = sc.nextLine();
         for (int i = 0; i < vectorNombre.length; i++) {
             if (vectorNombre[i] == null ? (buscar) == null : vectorNombre[i].equals(buscar)) {
@@ -116,7 +115,6 @@ public class Metodos extends Menu {
 
     public void busqueda2() {
         System.out.print("\nIngrese la inicial del departamento de su interes:  ");
-        sc.nextLine();
         buscar = sc.nextLine();
         for (int i = 0; i < vectorNombre.length; i++) {
             if (vectorNombre[i] == null ? (buscar) == null : vectorNombre[i].contains(buscar)) {
@@ -128,7 +126,7 @@ public class Metodos extends Menu {
     }
 
     public void pares() {
-        System.out.println("\nDepartamentos en posicion par con mas de 4 Municipios ");
+        System.out.println("\n Los departamentos en posicion par con mas de 4 Municipios ");
         for (int i = 0; i < 10; i++) {
             if (i % 2 == 0) {
                 if (numeroMun[i] > 4) {
@@ -140,20 +138,29 @@ public class Metodos extends Menu {
 
     public void mostrarCapital() {
         System.out.print("\nIngrese el nombre del departamento del cual desea conocer su capital: ");
-        sc.nextLine();
         String buscar = sc.nextLine();
-        int iterador =-1;
+        int iterador = -1;
         for (int i = 0; i < vectorNombre.length; i++) {
             if (vectorNombre[i] == null ? (buscar) == null : vectorNombre[i].equals(buscar)) {
-                iterador=i;
-                cabecera=capital[i];
+                iterador = i;
+                cabecera = capital[i];
             }
         }
-        if (iterador==-1){
-            System.out.println("Se ha producido un error, intentelo de nuevo");
-        }else {
-            System.out.println("La capital del departamento de: \""+buscar+"\" es: \""+cabecera+"\"");
+        if (iterador == -1) {
+            System.out.println("\nNo ha sido registrado, intentelo de nuevo con otro departamento");
+        } else {
+            System.out.println("\nLa capital del departamento de: \"" + buscar + "\" es: \"" + cabecera + "\"");
         }
     }
 
+    public void impar() {
+        System.out.println("Departamentos en posiciones impares dentro del registro");
+        for (int i = 0; i < 10; i++) {
+            if (vectorNombre[i] != null) {
+                if (i % 2 != 0) {
+                    System.out.println("Departamento: \"" + vectorNombre[i] + "\"");
+                }
+            }
+        }
+    }
 }
